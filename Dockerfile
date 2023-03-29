@@ -1,6 +1,6 @@
 FROM ubuntu:12.04
 LABEL Author = "Jay"
-RUN apt-get update && apt-get install -y apache2 && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y apache2 && apt-get clean
 
 EXPOSE 80
 
