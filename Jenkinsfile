@@ -10,7 +10,7 @@ pipeline {
         stage ('Build Docker Image') {
             steps {
                 script {
-                    sh 'docker build -t jayamantya/myubuntuimage .'
+                    sh 'sudo docker build -t jayamantya/myubuntuimage .'
                 }
             }
         }
