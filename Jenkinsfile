@@ -7,5 +7,12 @@ pipeline {
                 echo "Checkout Succesful"
             }
         }
+        stage ('Build Docker Image') {
+            steps {
+                script {
+                    sh 'docker build -t jayamantya/myubuntuimage'
+                }
+            }
+        }
     }
 }
