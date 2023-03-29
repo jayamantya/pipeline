@@ -1,10 +1,10 @@
 pipeline {
     agent any
-
     stages {
-        stage ('Print') {
+        stage ('Git Checkout') {
             steps {
-                echo "Hello Devops Engineers"
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/jayamantya/pipeline.git']])
+                echo "Checkout Succesful"
             }
         }
     }
