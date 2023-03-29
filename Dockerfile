@@ -1,6 +1,6 @@
 FROM ubuntu:12.04
 LABEL Author = "Jay"
-RUN sudo apt-get update 
+RUN apt-get update 
 RUN apt-get install -y apache2 
 RUN apt-get clean
 
