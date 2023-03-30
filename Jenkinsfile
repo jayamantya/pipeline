@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')]) {
-                        sh 'docker login -u jayamantya -p ${dockerhubpwd}'
+                        sh 'docker login -u jayamantya -password-stdin'
 
                         sh 'docker push jayamantya/myhello-world'
                     }
