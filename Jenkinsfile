@@ -10,7 +10,18 @@ pipeline {
         stage ('Build Docker Image') {
             steps {
                 script {
-                    sh 'sudo docker build -t jayamantya/myubuntuimage .'
+                    sh 'sudo docker build -t jayamantya/myhello-world .'
+                }
+            }
+        }
+        stage ('Push Docker Image to Docker Hub') {
+            steps {
+                script {
+                    withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')]) {
+                        sh 'docker login -u jayamantya -p ${dockerhubpwd}'
+
+                        sh 'docker push jayamantya/myhello-world'
+                    }
                 }
             }
         }
