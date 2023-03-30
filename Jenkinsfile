@@ -10,7 +10,7 @@ pipeline {
         stage ('Build Docker Image') {
             steps {
                 script {
-                    sh 'sudo docker build -t jayamantya/myhello-world .'
+                    sh 'docker build -t jayamantya/myhello-world .'
                 }
             }
         }
@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')]) {
-                        sh 'docker login -u jayamantya -password-stdin'
+                        sh 'docker login -u jayamantya -p ${dockerhubpwd}'
 
                         sh 'docker push jayamantya/myhello-world'
                     }
